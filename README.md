@@ -13,6 +13,7 @@ Welcome to the studera AI repository. Studera is an online learning and educatio
 - Express
 - Sequelite
 - Redis
+- SCSS
 
 ### Purpose 
 
