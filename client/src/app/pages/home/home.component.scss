@@ -1,0 +1,543 @@
+@import '../../../theme/mixins';
+
+li {
+  list-style-type: none;
+}
+ 
+#home {
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(15, 137, 213);
+}
+
+#main-card {
+  text-align: center;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  margin: 3em auto 0;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+#tabs {
+  padding-top: 1em;
+  width: 20%;
+  ul {
+    margin-top: 2em;
+    padding-inline: 20px;
+    text-align: left;
+    margin-bottom: 5em;
+    li {
+      cursor: pointer;
+      vertical-align: middle;
+      margin-top: 10px;
+      width: 80%;
+      padding: 0.5em;
+      border-radius: 0 8px 8px 0;
+      // background-color: blue;
+      color: #7f7f7f;
+
+      svg, span {
+        vertical-align: middle;
+        display: inline-block;
+        margin: auto 0;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  #profile {
+    // @include debug;
+    @include flex(row, flex-start, flex-start);
+    padding-left: 10px;
+    text-align: left;
+    margin-bottom: 1em;
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+
+    .profile-img {
+      width: 3em;
+      background-color: aqua;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      margin-right: 1em;
+    }
+  }
+}
+
+#main {
+  padding: 1em;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+  width: 50%;
+  display: grid;
+  gap: 40px;
+  border-left: 1px solid #f0f0f0;
+  grid-template-columns: repeat(3, 1fr);
+  // grid-auto-rows: minmax(50px, auto);
+  grid-template-rows: 1fr 3fr 2fr;
+  background: linear-gradient(#fff 70%, #d1d1d1);
+
+  .text {
+    grid-column: 1 / 4;
+    grid-row: 1;
+  }
+
+  .main {
+    @include flex(row, center, $gap: 5px);
+    border-radius: 16px;
+    grid-column: 1 / 4;
+    grid-row: 2;
+    background-color: rgb(62, 43, 235);
+    overflow: visible;
+    position: relative;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(13, 60, 217, 0.2);
+    background-image: url("https://static.vecteezy.com/system/resources/previews/019/861/938/non_2x/hand-drawn-doodle-seamless-pattern-with-school-icons-on-blue-background-illustration-of-supplies-back-to-school-concept-for-print-web-and-textile-design-stationery-vector.jpg");
+
+    form  {
+      @include flex(column, $gap: 1em);
+      width: 70%;
+
+      input {
+        width: 100%;
+        border-radius: 4px;
+        outline: none;
+        border: none;
+        height: 2.5em;
+        padding: 22px 20px;
+        padding-right: 10px;
+      }
+
+      .timeframe {
+        @include flex(row, $gap: 1em);
+        width: 100%;
+
+        select {
+          height: 3em;
+          border-radius: 4px;
+          border: none;
+          outline: none;
+          width: auto;
+          cursor: pointer;
+        }
+      }
+
+      select {
+        width: 100%;
+        height: 3em;
+        cursor: pointer;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        padding: 10px;
+      }
+
+      button {
+        border-radius: 4px;
+        height: 3em;
+        width: 15%;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+        background-color: #6cebf4;
+        width: 50%;
+        box-shadow: 0 2px 5px #202020;
+      }
+
+      button:hover {
+        background-color: rgb(106, 6, 172);
+        color: white;
+      }
+    }
+
+    button {
+      border-radius: 4px;
+      height: 2.5em;
+      width: 15%;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: rgb(106, 6, 172);
+      color: white;
+    }
+
+
+    .search-bar {
+      // margin: 5em auto;
+      position: relative;
+      // @include debug;
+      width: 70%;
+
+      .input {
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        height: 2.5em;
+        padding-left: 40px;
+        width: 100%;
+        position: relative;
+        background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
+      }
+    }
+  }
+
+  .main::before {
+    border-radius: inherit;
+    opacity: 0.8;
+    content: "";
+    z-index: -1;
+    position: absolute;
+    background-color: rgb(43, 117, 235);
+    width: 95%;
+    left: 2.5%;
+    top: 7.5%;
+    height: 95%;
+  }
+
+
+  .main::after {
+    border-radius: inherit;
+    opacity: 0.8;
+    content: "";
+    z-index: -2;
+    position: absolute;
+    background-color: rgb(62, 197, 255);
+    width: 90%;
+    left: 5%;
+    top: 15%;
+    height: 90%;
+  }
+
+  .learning-paths {
+    grid-column: 1/4;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 0.25fr 1fr;
+    gap: 10px;
+    margin-top: 0.5em;
+    p {
+      font-size: 0.9em;
+      line-height: 1em;
+      opacity: 0.7;
+    }
+
+    .subtitle {
+      margin-top: 0.2em;
+    }
+  }
+
+  h3 {
+    grid-column: 1/4;
+    grid-row: 1;
+  }
+  .learning-path-1, .learning-path-2, .learning-path-3 {
+    padding: 20px;
+    grid-row: 2;
+    border-radius: 12px;
+    background-color: #fff;
+  }
+
+  .learning-path-1 {
+    grid-column: 1;
+
+    .circle {
+      @include debug;
+      margin-top: 2em;
+      height: 2em;
+      width: 2em;
+      border-radius: 50%;
+      background-color: rgb(80, 157, 172);
+      position: relative;
+      border: 2px solid #b8b8b8
+    }
+
+    .circle::after {
+      box-sizing: border-box;
+      position: absolute;
+      left: 100%;
+      top: -2px;
+      content: "";
+      height: inherit;
+      width: inherit ;
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          circle at 50% 0,
+          rgba(240, 226, 68, 0.5),
+          rgba(151, 46, 46, 0) 70.71%
+        ),
+        radial-gradient(
+          circle at 6.7% 75%,
+          rgba(85, 85, 179, 0.674),
+          rgba(79, 20, 13, 0.559) 70.71%
+        ),
+        radial-gradient(
+          circle at 93.3% 75%,
+          rgba(0, 255, 0, 0.5),
+          rgba(0, 255, 0, 0) 70.71%
+        ) beige;
+      border: 2px solid #dfdfdf
+    }
+
+    .circle::before {
+      box-sizing: border-box;
+      position: absolute;
+      left: 50%;
+      top: -2px;
+      content: "";
+      height: inherit;
+      width: inherit ;
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          circle at 50% 0,
+          rgba(232, 198, 198, 0.5),
+          rgba(52, 202, 142, 0.724) 70.71%
+        ),
+        radial-gradient(
+          circle at 6.7% 75%,
+          rgba(215, 71, 194, 0.5),
+          rgba(0, 0, 255, 0) 70.71%
+        ) beige;
+      border: 2px solid #dfdfdf
+    }
+  }
+
+  .learning-path-2 {
+    grid-column: 2;
+
+    .circle {
+      @include debug;
+      margin-top: 2em;
+      height: 2em;
+      width: 2em;
+      border-radius: 50%;
+      background-color: rgb(217, 145, 93);
+      position: relative;
+      border: 2px solid #b8b8b8
+    }
+
+    .circle::after {
+      box-sizing: border-box;
+      position: absolute;
+      left: 100%;
+      top: -2px;
+      content: "";
+      height: inherit;
+      width: inherit ;
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          circle at 50% 0,
+          rgba(255, 0, 0, 0.5),
+          rgba(255, 0, 0, 0) 70.71%
+        ),
+        radial-gradient(
+          circle at 6.7% 75%,
+          rgba(0, 0, 255, 0.5),
+          rgba(0, 0, 255, 0) 70.71%
+        ),
+        radial-gradient(
+          circle at 93.3% 75%,
+          rgba(0, 255, 0, 0.5),
+          rgba(0, 255, 0, 0) 70.71%
+        ) beige;
+      border: 2px solid #dfdfdf
+    }
+
+    .circle::before {
+      box-sizing: border-box;
+      position: absolute;
+      left: 50%;
+      top: -2px;
+      content: "";
+      height: inherit;
+      width: inherit ;
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          circle at 50% 0,
+          rgba(255, 0, 0, 0.5),
+          rgba(255, 0, 0, 0) 70.71%
+        ),
+        radial-gradient(
+          circle at 6.7% 75%,
+          rgba(174, 106, 211, 0.5),
+          rgba(0, 0, 255, 0) 70.71%
+        ) beige;
+      border: 2px solid #dfdfdf
+    }
+  }
+
+  .learning-path-3 {
+    grid-column: 3;
+
+    .circle {
+      @include debug;
+      margin-top: 2em;
+      height: 2em;
+      width: 2em;
+      border-radius: 50%;
+      background-color: blue;
+      position: relative;
+      border: 2px solid #b8b8b8
+    }
+
+    .circle::after {
+      box-sizing: border-box;
+      position: absolute;
+      left: 100%;
+      top: -2px;
+      content: "";
+      height: inherit;
+      width: inherit ;
+      border-radius: 50%;
+      background-color: rgb(94, 255, 0);
+      border: 2px solid #dfdfdf
+    }
+
+    .circle::before {
+      box-sizing: border-box;
+      position: absolute;
+      left: 50%;
+      top: -2px;
+      content: "";
+      height: inherit;
+      width: inherit ;
+      border-radius: 50%;
+      background-color: rgb(140, 159, 129);
+      border: 2px solid #dfdfdf
+    }
+  }
+}
+
+#search {
+  width: 30%;
+  display: grid;
+  grid-template-rows: 1fr 3fr 2fr;
+  gap: 10px;
+  background-color: rgb(242, 255, 254);
+
+  .toolbar {
+    grid-column: 1;
+    grid-row: 1;
+    background-color: rgb(231, 255, 253);
+    position: relative;
+    padding: 0.5em;
+    @include flex(row, flex-end, $gap: 10px, $align: start);
+
+    button {
+      aspect-ratio: 1;
+      width: 2em;
+      height: 2em;
+      border-radius: 50%;
+      border: none;
+      text-align: center;
+      padding-top: 3px;
+      vertical-align: middle;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0 2px 5px #808080;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    button:hover {
+      transform: translateZ(5px);
+      box-shadow: 0 7px 10px #515151;
+    }
+
+    .notif {
+      width: auto;
+      position: relative;
+      margin-right: 0.5em;
+    }
+
+    .notif::after {
+      left: 80%;
+      bottom: 50%;
+      position: absolute;
+      content: "3";
+      font-size: 0.8em;
+      font-weight: 600;
+      color: white;
+      border-radius: 50%;
+      background-color: red;
+      padding: 1px 6px;
+    }
+  }
+  .courses {
+    text-align: left;
+    padding: 1em;
+    grid-column: 1;
+    grid-row: 2;
+    background-color: rgb(242, 255, 254);
+
+    .courses-list {
+      @include flex(column, $gap: 10px);
+      width: 100%;
+      background-color: transparent;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+
+      .course-info {
+        @include flex(row, space-between);
+        height: 4em;
+        background-color: rgb(255, 255, 255);
+        padding: 10px 5px;
+        border-radius: inherit;
+
+        .course-img {
+          height: 80%;
+          border-radius: 12px;
+          aspect-ratio: 1;
+          background-color: red;
+          margin: 10% 8px;
+        }
+
+        .chevron {
+          width: 5%;
+        }
+
+      }
+    }
+  }
+  .graph {
+    @include flex(column, $gap: 1em, $align: flex-start);
+    padding: 1em;
+    grid-column: 1;
+    grid-row: 3;
+    background-color: transparent;
+    text-align: left;
+
+    .box {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      background-color: #808080;
+      background-image: url("../../../assets/icons/graph.jfif");
+      background-size: cover;
+    }
+
+    img {
+      width: 80%;
+      // height: 40%;
+      border-radius: 8px;
+      overflow: hidden;
+      object-fit: cover;
+    }
+  }
+}
+
+
