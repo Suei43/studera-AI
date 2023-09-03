@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-// import {HttpClient}
 
 @Component({
   selector: 'app-home',
@@ -27,7 +26,7 @@ export class HomeComponent {
       return
     }
 
-    this.http.post("https://6f07-102-89-41-131.ngrok-free.app/study-materials",
+    this.http.post("http://localhost:5000/study-materials",
       {
         title: this.requestForm.value.title,
         timeframe: this.requestForm.value.timeframeDuration + this.requestForm.value.timeframeUnit,
