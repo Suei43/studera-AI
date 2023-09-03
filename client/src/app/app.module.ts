@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CourseComponent } from './pages/course/course.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    CourseComponent,
   ],
   imports: [
     BrowserModule,

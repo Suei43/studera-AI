@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +10,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient, public dataSrv: DataService, private router: Router){}
+
+  isSubmitting = false;
 
   requestForm: FormGroup = new FormGroup({
     title: new FormControl("", Validators.required),
@@ -26,15 +30,27 @@ export class HomeComponent {
       return
     }
 
-    this.http.post("http://localhost:5000/study-materials",
-      {
-        title: this.requestForm.value.title,
-        timeframe: this.requestForm.value.timeframeDuration + this.requestForm.value.timeframeUnit,
-        preference: this.requestForm.value.preference
-      }
-    ).subscribe(res => {
-      console.log(res)
-    })
+    let info = {
+      title: this.requestForm.value.title,
+      timeframe: this.requestForm.value.timeframeDuration +' '+ this.requestForm.value.timeframeUnit,
+      preference: this.requestForm.value.preference
+    }
+
+    this.dataSrv.getInfo(info);
+    this.isSubmitting = true;
+
+  }
+
+  gotoCoursePage() {
+    this.router.navigateByUrl("/course")
+  }
+
+  get title() {
+    return this.requestForm.get('title');
+  }
+
+  get duration() {
+    return this.requestForm.get('timeframeDuration');
   }
 
 }
