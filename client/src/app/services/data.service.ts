@@ -10,7 +10,7 @@ export class DataService {
   received: any[] = [];
   lastInfo: any = {};
 
-  url: string = "http://localhost:5000/study-materials"
+  url: string = "https://studera-be.onrender.com/study-materials"
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -38,7 +38,7 @@ export class DataService {
 
   retryPrompt() {
     this.http.post(
-      "http://localhost:5000/re-study-materials", this.lastInfo
+      "https://studera-be.onrender.com/re-study-materials", this.lastInfo
     ).subscribe({
       next: (res) => {
         console.log(res);
