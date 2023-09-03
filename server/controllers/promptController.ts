@@ -25,16 +25,16 @@ const promptController = async (req: modifiedRequest,res: Response) => {
     const response = completion.choices[0].message.content;
     console.log('AI Response: ',response)
 
-    await setRedisData(title, JSON.stringify([title, timeframe, preference]));
+    // await setRedisData(title, JSON.stringify([title, timeframe, preference]));
 
-    const keys = await getAllKeys(redisClient)
-    const cache = await getAllCache(redisClient, keys)
-    const clientResponse = createResponseObj(cache)
+    // const keys = await getAllKeys(redisClient)
+    // const cache = await getAllCache(redisClient, keys)
+    // const clientResponse = createResponseObj(cache)
 
     return res.status(200).json({
         message: "success",
         data: response,
-        cache: clientResponse
+        // cache: clientResponse
       });
 };
 
@@ -50,16 +50,16 @@ const regeneratePromptController = async (req: modifiedRequest, res: Response) =
     const response = completion.choices[0].message.content;
     console.log('AI Response: ',response)
 
-    await setRedisData(title, JSON.stringify([title, timeframe, preference]));
+    // await setRedisData(title, JSON.stringify([title, timeframe, preference]));
 
-    const keys = await getAllKeys(redisClient)
-    const cache = await getAllCache(redisClient, keys)
-    const clientResponse = createResponseObj(cache)
+    // const keys = await getAllKeys(redisClient)
+    // const cache = await getAllCache(redisClient, keys)
+    // const clientResponse = createResponseObj(cache)
 
     return res.status(200).json({
         message: "success",
         data: response,
-        cache: clientResponse
+        // cache: clientResponse
       });
 }
 

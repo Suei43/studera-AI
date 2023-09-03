@@ -8,7 +8,7 @@ require('dotenv').config();
 const { storePrompt, promptController, regeneratePromptController } = require('./controllers/promptController')
 const {userController} = require('./controllers/userController');
 
-redisConnect(redisClient)
+// redisConnect(redisClient)
 
 app.use(cors());
 
